@@ -8,6 +8,15 @@ If the private form is unavailable, open a public issue that describes the *clas
 
 ## Threat model, honestly stated
 
+**Codex scope:** the Claude permission lists and agent tool restrictions described
+below are enforced only by Claude Code. Codex uses its active sandbox and approval
+settings; `.claude/settings.json` does not configure them. The Codex workflow
+entry points default to sequential role stages, which preserve the review tasks
+but do not provide separate tool isolation or an independent review context.
+See [the runtime compatibility guide](docs/CODEX_COMPATIBILITY.md) for the exact
+mapping. The deterministic posting gate, guarded fetch helper, and personal-data
+ignore rules remain shared.
+
 This is an agentic workflow: an LLM with file access reads untrusted web content (job postings) alongside your personal data (CV, profile, application history). That combination is the main risk surface, and it cannot be fully eliminated - only narrowed. A posting can carry hidden text written to steer the agent. The framework answers that on two levels: instruction-level rules that tell the agent how to treat postings, and permission-level rules that bound what the agent can do even if it is steered.
 
 ### Instruction level

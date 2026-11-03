@@ -2,6 +2,11 @@
 
 Step-by-step instructions for getting the AI Job Search framework running.
 
+**OpenAI Codex:** use the [Codex quick start](docs/CODEX_MIGRATION.md#codex-quick-start)
+and [compatibility guide](docs/CODEX_COMPATIBILITY.md). The installation and slash
+commands below describe the preserved Claude Code path; Codex uses the same
+Python, Bun, document templates, and shared profile without requiring Claude Code.
+
 ## 1. Prerequisites
 
 ### Claude Code

@@ -72,7 +72,19 @@ The core workflow (self-profiling, fit evaluation, and the drafter-reviewer appl
 
 The framework encodes career guidance best practices, including structured evaluation criteria, forward-looking cover letter framing, and optional salary benchmarking.
 
+## Use this workspace with OpenAI Codex
+
+Open this repository in Codex and follow the [Codex quick start](docs/CODEX_MIGRATION.md#codex-quick-start).
+The five core workflows have native skills: `$job-profile-setup`, `$job-scrape`,
+`$job-rank`, `$job-apply`, and `$job-interview`. Claude Code and an Anthropic account
+are not required for this path. Shared specifications remain in `.claude/` to
+preserve existing behavior and upstream compatibility. See the
+[dependency audit and validation notes](docs/CODEX_MIGRATION.md).
+
 ## Quick start
+
+This section preserves the original Claude Code setup. For Codex, use the
+[Codex quick start](docs/CODEX_MIGRATION.md#codex-quick-start) above.
 
 > 🎥 **Prefer to see it in action first?** [The Next New Thing did a hands-on walkthrough](https://www.youtube.com/watch?v=HoVxjMNFYv4) of how the workflow is actually used, from setup to a finished application (recorded August 2026 - commands may have evolved since).
 
@@ -89,7 +101,7 @@ The framework encodes career guidance best practices, including structured evalu
 <details>
 <summary>Fine print: other agents, LaTeX engines, PDF text extraction</summary>
 
-- **Using a different agent tool** (Codex, Antigravity, Gemini CLI)? Start at [`AGENTS.md`](AGENTS.md) - the portal search skills work there out of the box, and [community forks](https://github.com/ai-job-search-dev/ai-job-search/discussions/78) adapt the full workflow.
+- **Using Codex?** Start at the [Codex quick start](docs/CODEX_MIGRATION.md#codex-quick-start). For other runtimes, [`AGENTS.md`](AGENTS.md) points to the shared specifications and [community forks](https://github.com/ai-job-search-dev/ai-job-search/discussions/78) provide additional adaptations.
 - **LaTeX engines.** The CV compiles with `lualatex` (pdflatex often fails on modern MiKTeX installs with `fontawesome5` font-expansion errors); the cover letter compiles with `xelatex` because `cover.cls` requires `fontspec`. If using a minimal TeX install such as TinyTeX or BasicTeX, install the extra packages listed in [SETUP.md](SETUP.md#minimal-tex-install-tinytexbasictex).
 - **PDF text extraction.** `pypdf` is BSD-licensed and needs no Poppler. Poppler `pdftotext` remains a fallback (macOS: `brew install poppler`, Debian/Ubuntu: `apt install poppler-utils`, Windows: `choco install poppler`). If both are missing, the check degrades to a visual keyword review.
 
